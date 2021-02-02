@@ -37,6 +37,8 @@ public class Main {
 
                 commands.get(input).executed();
 
+            }else {
+                commands.get("G").executed();
             }
         }
     }
