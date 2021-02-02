@@ -24,14 +24,19 @@ public class TrendingCommand implements Command{
         List<Movie> movieTrending = new ArrayList<>();
         Movie save = movies.get(0);
         for (int i = 0; i < movies.size(); i++) {
-            save = movies.get(0);
+            for (Movie movie: movies){
+                if(!movieTrending.contains(movie)){
+                    save = movie;
+                    break;
+                }
+            }
             for (int j = i; j < movies.size(); j++) {
-                if (save.getPeopleWhoWatchIt() < movies.get(j).getPeopleWhoWatchIt() ) {
+                if (save.getPeopleWhoWatchIt() < movies.get(j).getPeopleWhoWatchIt() && !movieTrending.contains(movies.get(j).getPeopleWhoWatchIt())) {
                     save = movies.get(j);
                 }
             }
             movieTrending.add(save);
-            movies.remove(save);
+
         }
 
 

@@ -24,7 +24,12 @@ public class HigherReviewCommand implements Command {
         List<Movie> higherRev = new ArrayList<>();
         Movie save = movies.get(0);
         for (int i = 0; i < movies.size(); i++) {
-            save = movies.get(i);
+            for (Movie movie: movies){
+                if(!higherRev.contains(movie)){
+                    save = movie;
+                    break;
+                }
+            }
             for (int j = i+1; j < movies.size(); j++) {
                 if (save.getReviews() < movies.get(j).getReviews() && !higherRev.contains(movies.get(j).getReviews())) {
                     save = movies.get(j);

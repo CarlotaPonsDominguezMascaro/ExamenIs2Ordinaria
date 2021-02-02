@@ -24,7 +24,12 @@ public class NewFilmCommand implements Command {
         List<Movie> movePerYear = new ArrayList<>();
         Movie save = movies.get(0);
         for (int i = 0; i < movies.size(); i++) {
-            save = movies.get(0);
+            for (Movie movie: movies){
+                if(!movePerYear.contains(movie)){
+                    save = movie;
+                    break;
+                }
+            }
             for (int j = i+1; j < movies.size(); j++) {
                 if (save.getYear() < movies.get(j).getYear() && !movePerYear.contains(movies.get(j).getYear())) {
                     save = movies.get(j);
