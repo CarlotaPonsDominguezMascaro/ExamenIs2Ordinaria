@@ -26,7 +26,7 @@ public class HigherReviewCommand implements Command {
         for (int i = 0; i < movies.size(); i++) {
             save = movies.get(i);
             for (int j = i+1; j < movies.size(); j++) {
-                if (save.getReviews() < movies.get(j).getReviews() && !higherRev.contains(save)) {
+                if (save.getReviews() < movies.get(j).getReviews() && !higherRev.contains(movies.get(j).getReviews())) {
                     save = movies.get(j);
                 }
             }
