@@ -52,6 +52,7 @@ public class Movie {
         sb.append(", reviews=").append(reviews);
         sb.append(", genre=").append(genre);
         sb.append(", duration=").append(duration);
+        sb.append(",people that has seen it ").append(peopleWhoWatch);
         sb.append("}\n");
         return sb.toString();
     }
